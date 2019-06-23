@@ -3,7 +3,7 @@
     // облачность
     enum Overcast : byte
     {
-        // Ясно, Малооблачно, Облачно, Грозовые тучи
+        // Не определено, Ясно, Малооблачно, Облачно, Грозовые тучи
         Undefined, Clear, PartlyCloudy, Cloudy, Thunderclouds
     }
 

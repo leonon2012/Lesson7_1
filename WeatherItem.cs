@@ -7,26 +7,34 @@ namespace Lesson7
     {
         // Поля
         // дата
-        public DateTime date;
+        DateTime date;
         // температура минимальная
-        public sbyte mintemp;
+        sbyte mintemp;
         // температура максимальная
-        public sbyte maxtemp;
+        sbyte maxtemp;
         // облачность
-        public Overcast overcast;
+        Overcast overcast;
         // осадки
-        public Precipitation precipitation;
+        Precipitation precipitation;
         // влажность
         byte humidity;
         // сила ветра
-        public ushort windForce;
+        ushort windForce;
         // направление ветра
-        public WindDirection windDirection;
+        WindDirection windDirection;
         // фаза луны
-        public MoonPhase moonPhase;
+        MoonPhase moonPhase;
 
         // Свойства
         public byte Humidity { get => humidity; set => humidity = (byte)(value > 100 ? 100 : value); }
+        public DateTime Date { get => date; set => date = value; }
+        public sbyte Mintemp { get => mintemp; set => mintemp = value; }
+        public sbyte Maxtemp { get => maxtemp; set => maxtemp = value; }
+        public Overcast Overcast { get => overcast; set => overcast = value; }
+        public Precipitation Precipitation { get => precipitation; set => precipitation = value; }
+        public ushort WindForce { get => windForce; set => windForce = value; }
+        public WindDirection WindDirection { get => windDirection; set => windDirection = value; }
+        public MoonPhase MoonPhase { get => moonPhase; set => moonPhase = value; }
 
         // Конструктора
         public WeatherItem() : this(DateTime.Today)
@@ -35,15 +43,15 @@ namespace Lesson7
 
         public WeatherItem(DateTime date)
         {
-            this.date = date;
+            this.Date = date;
         }
 
         public WeatherItem(DateTime date, sbyte mintemp, sbyte maxtemp, Overcast overcast, Precipitation precipitation, ushort windForce, WindDirection windDirection, MoonPhase moonPhase, byte humidity) : this(date)
         {
-            this.mintemp = mintemp;
-            this.maxtemp = maxtemp;
-            this.overcast = overcast;
-            this.precipitation = precipitation;
+            this.Mintemp = mintemp;
+            this.Maxtemp = maxtemp;
+            this.Overcast = overcast;
+            this.Precipitation = precipitation;
             this.windForce = windForce;
             this.windDirection = windDirection;
             this.moonPhase = moonPhase;
@@ -59,11 +67,11 @@ namespace Lesson7
             string[] windDirectionList = { "Не определено", "Север", "Северо-восток", "Восток", "Юго-восток", "Юг", "Юго-запад", "Запад", "Северо-запад" };
             string[] moonPhaseList = { "Не определено", "Новолуние", "Растущая", "Полнолуние", "Убывающая" };
 
-            return $"Дата              -> {date.ToShortDateString()}\n" +
-                   $"min Т, C          -> {mintemp.ToString()}\n" +
-                   $"max Т, C          -> {maxtemp.ToString()}\n" +
-                   $"Облачность        -> {overcastList[(int)overcast]}\n" +
-                   $"Осадки            -> {precipitationList[(int)precipitation]}\n" +
+            return $"Дата              -> {Date.ToShortDateString()}\n" +
+                   $"min Т, C          -> {Mintemp.ToString()}\n" +
+                   $"max Т, C          -> {Maxtemp.ToString()}\n" +
+                   $"Облачность        -> {overcastList[(int)Overcast]}\n" +
+                   $"Осадки            -> {precipitationList[(int)Precipitation]}\n" +
                    $"Влажность, %      -> {Humidity.ToString()}\n" +
                    $"Сила ветра, м/с   -> {windForce.ToString()}\n" +
                    $"Направление ветра -> {windDirectionList[(int)windDirection]}\n" +
