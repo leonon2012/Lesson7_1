@@ -185,7 +185,7 @@ namespace Lesson7
                 Array values = Enum.GetValues(type);
                 lock (rnd)
                 {
-                    object value = values.GetValue(rnd.Next(values.Length));
+                    object value = values.GetValue(rnd.Next(1, values.Length));
                     return (T)Convert.ChangeType(value, type);
                 }
             }
